@@ -1,6 +1,6 @@
 package dio.aula.repository;
 
-import dio.aula.model.User;
+import dio.aula.model.UserModel;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -9,16 +9,16 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface UserRepository extends JpaRepository<User, Integer> {
+public interface UserRepository extends JpaRepository<UserModel, Integer> {
 
     // Query Method
-    List<User> findByNameContaining(String name);
+    List<UserModel> findByUsernameContains(String username);
 
     // Query Method
-    User findByUsername (String username);
+    UserModel findByUsername (String username);
 
     // Query Override
-    @Query("SELECT U FROM User U WHERE U.name LIKE %:name%")
-    List<User> filtrarPorNome(@Param("name") String name);
+    @Query("SELECT U FROM UserModel U WHERE U.username LIKE %:name%")
+    List<UserModel> filtrarPorNome(@Param("name") String name);
 
 }
