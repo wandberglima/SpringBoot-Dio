@@ -38,8 +38,9 @@ public class UsuarioController {
     userRepository.save(usuario);
     }
 
-
-
-
+    @PutMapping
+    public void putUsuario(@RequestBody Usuario usuario){
+        userRepository.save(usuario);
+    }
 
 }
