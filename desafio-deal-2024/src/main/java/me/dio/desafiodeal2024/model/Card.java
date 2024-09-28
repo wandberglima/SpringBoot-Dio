@@ -20,7 +20,7 @@ public class Card {
     @Column(nullable = false, unique = true)
     private String number;
 
-    @Column(name = "available_limit", scale = 13, precision = 2)
+    @Column(name = "available_limit", scale = 2, precision = 13)
     private BigDecimal limit;
 
 }
